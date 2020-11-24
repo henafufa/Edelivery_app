@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarModule,InputsModule, WavesModule,ButtonsModule,IconsModule,CardsModule,CollapseModule, MdbTableDirective  } from 'angular-bootstrap-md'
 import { ModalModule,CheckboxModule, TooltipModule,TableModule, BadgeModule,PopoverModule } from 'angular-bootstrap-md';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 // custom module
 
 
@@ -25,6 +25,7 @@ import { ModalModule,CheckboxModule, TooltipModule,TableModule, BadgeModule,Popo
     TableModule,
     PopoverModule,
     CollapseModule,
+    BrowserAnimationsModule,
     ButtonsModule
   ]
 })

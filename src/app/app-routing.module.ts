@@ -17,11 +17,11 @@ const routes: Routes = [
     component:OrderComponent
   },
   {
-    path:'delivery',
+    path:'order/delivery',
     component:DeliveryComponent
   },
   {
-    path:'profile',
+    path:'user/profile',
     component:EdeliveryComponent,
     // canActivate:[AuthGuard]
   },

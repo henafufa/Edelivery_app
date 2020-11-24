@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 
+// custom module
+import { UserLogin } from '../modals/userLogin';
+import { UserRegister } from '../modals/userRegister';
 
-interface userLogin{
-  success:boolean
-}
 @Injectable({
   providedIn: 'root'
 })
@@ -16,11 +16,23 @@ export class AuthService {
   constructor(private http:HttpClient) { }
 
   // post the login info to api server
-  userLoginDetail(username, password): Observable<userLogin> {
-     return this.http.post<userLogin>('http://localhost:3000/api/userLogin',{
+  userLoginDetail(username, password): Observable<UserLogin> {
+     return this.http.post<UserLogin>('http://localhost:3000/api/userLogin',{
        username,
        password
      });
+  }
+
+  // post the login info to api server
+  userRegisterDetail(fullname,phonNumber,email,selected,password):Observable<UserRegister>{
+    return this.http.post<UserRegister>('http://localhost:3000/api/userRegister',{
+      fullname,
+      phonNumber,
+      email,
+      selected,
+      password
+    });
+
   }
   setLoggedIn(status: boolean){
     this.loggedInStatus= status;
