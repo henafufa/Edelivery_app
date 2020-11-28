@@ -23,6 +23,13 @@ import { MdBootstrapModule } from './md-bootstrap.module';
 import { DeliveryComponent } from './components/delivery/delivery.component';
 import { OrderComponent } from './components/order/order.component';
 import { RecaptchalLoaderServiceService } from './services/recaptchal-loader-service.service';
+import { OrderService } from './services/order.service';
+import { ModalOrderEditComponent } from './components/modal-order-edit/modal-order-edit.component';
+import { AdminDeliveryComponent } from './components/admin-delivery/admin-delivery.component';
+import { AgentDeliveryComponent } from './components/agent-delivery/agent-delivery.component';
+import { CompanyDeliveryComponent } from './components/company-delivery/company-delivery.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +39,12 @@ import { RecaptchalLoaderServiceService } from './services/recaptchal-loader-ser
     LoginComponent,
     RegistrationComponent,
     DeliveryComponent,
-    OrderComponent
+    OrderComponent,
+    ModalOrderEditComponent,
+    AdminDeliveryComponent,
+    AgentDeliveryComponent,
+    CompanyDeliveryComponent,
+    OrderListComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +58,7 @@ import { RecaptchalLoaderServiceService } from './services/recaptchal-loader-ser
     MDBBootstrapModule.forRoot(),
     AppRoutingModule
   ],
-  providers: [AuthService,AuthGuard, 
+  providers: [AuthService,OrderService,AuthGuard, 
     {provide: RECAPTCHA_V3_SITE_KEY, useValue: '<YOUR_SITE_KEY>'},
     {
       provide: RECAPTCHA_LANGUAGE,
@@ -61,6 +73,9 @@ import { RecaptchalLoaderServiceService } from './services/recaptchal-loader-ser
       useValue: new RecaptchalLoaderServiceService(),
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ModalOrderEditComponent
+  ]
 })
 export class AppModule { }

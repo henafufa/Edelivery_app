@@ -107,6 +107,12 @@ p {
     width: 75vw;
 }
 
+.contentRight .orderCard{
+    margin-top:0px;
+    padding-top: 0px;
+    height: 100vw;
+    width: 75vw;
+}
 
 // profile
 .profile{
@@ -117,6 +123,7 @@ p {
 }
 .profileRight{
     width: 50%;
+    margin-left: 5vw;
 }
 .changeProfile{
     margin-top: 3vw;
@@ -407,3 +414,8 @@ svg#clouds {
     visibility: hidden;
     }
 }
+
+.master-button {
+    padding: 0.25rem 0.7rem !important;
+    font-size: 0.9rem !important;
+  }
