@@ -9,7 +9,13 @@ import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 import { RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
 import { RECAPTCHA_LANGUAGE } from 'ng-recaptcha';
 import { RecaptchaLoaderService } from 'ng-recaptcha';
- 
+import { NgxStripeModule } from 'ngx-stripe';
+// import * as mapboxgl from 'mapbox-gl';
+// material module
+import { MaterialModule } from './material.module';
+
+
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 // custom module
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +35,13 @@ import { AdminDeliveryComponent } from './components/admin-delivery/admin-delive
 import { AgentDeliveryComponent } from './components/agent-delivery/agent-delivery.component';
 import { CompanyDeliveryComponent } from './components/company-delivery/company-delivery.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { LoginDefaultComponent } from './components/login-default/login-default.component';
+import { TelephoneFieldComponent } from './components/telephone-field/telephone-field.component';
+import { CartComponent } from './components/cart/cart.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { OrderTableComponent } from './components/order-table/order-table.component';
 
 
 @NgModule({
@@ -44,7 +57,13 @@ import { OrderListComponent } from './components/order-list/order-list.component
     AdminDeliveryComponent,
     AgentDeliveryComponent,
     CompanyDeliveryComponent,
-    OrderListComponent
+    OrderListComponent,
+    ResetPasswordComponent,
+    LoginDefaultComponent,
+    TelephoneFieldComponent,
+    CartComponent,
+    PaymentComponent,
+    OrderTableComponent
   ],
   imports: [
     BrowserModule,
@@ -52,11 +71,14 @@ import { OrderListComponent } from './components/order-list/order-list.component
     ReactiveFormsModule,
     HttpClientModule,
     MdBootstrapModule,
+    MaterialModule,
     RecaptchaV3Module,
     RecaptchaModule,
     RecaptchaFormsModule,
     MDBBootstrapModule.forRoot(),
-    AppRoutingModule
+    NgxStripeModule.forRoot('pk_test_51HueDwBg545NKOukzKez7oE2rLvsCy7rHD81YLlicverape9EsTOsGGCdCOdDKrMgtSBM2eT2TCWZMSC3AzlI9qQ00h4z04Ih6'),
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [AuthService,OrderService,AuthGuard, 
     {provide: RECAPTCHA_V3_SITE_KEY, useValue: '<YOUR_SITE_KEY>'},
@@ -74,6 +96,7 @@ import { OrderListComponent } from './components/order-list/order-list.component
     },
   ],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [
     ModalOrderEditComponent
   ]
