@@ -1,6 +1,5 @@
 # Edelivery
 ![profile](https://user-images.githubusercontent.com/37697829/146637748-e85d3c74-fe87-40b7-81d5-3be90a40187f.PNG)
-![order](https://user-images.githubusercontent.com/37697829/146637824-880a06d8-34a0-45a1-847b-3a37c3b0acce.PNG)
 ![erderdone](https://user-images.githubusercontent.com/37697829/146637895-80ce3a17-2146-4a74-a90b-4400f1f02656.PNG)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
