@@ -276,10 +276,7 @@ export class OrderComponent implements OnInit, AfterViewInit {
       'email': this.email,
       'phoneNumber': this.phone,
     }
-    console.log(this.firstName, this.lastName, this.email, this.address, this.deliveryDueDate, this.phone);
-    console.log('add to  clicked');
-    console.log(this.orderItem, this.sourceAddress, this.destAddress, this.deliveryDueDate, '', this.orderer, this.receiver);
-
+    
     const currentUser = this.authService.currentUserValue;
     if (currentUser) {
       let firstName = document.getElementById('#firstName');
@@ -294,10 +291,13 @@ export class OrderComponent implements OnInit, AfterViewInit {
         'address': this.address,
         'phoneNumber': this.phone,
       }
-      console.log('ready to order',315);
-      let shippingCost = this.calculateCostEstimation(this.selectedService);
-      console.log('shippingCost', shippingCost);
-      this.orderService.orderDeliveryDetail(this.orderItem, this.sourceAddress, this.destAddress, this.deliveryDueDate, '', this.orderer, this.receiver)
+      // console.log('ready to order',315);
+      // let shippingCost = this.calculateCostEstimation(this.selectedService);
+      // console.log('shippingCost', shippingCost);
+      console.log(this.firstName, this.lastName, this.email, this.address, this.deliveryDueDate, this.phone);
+    console.log('add to  clicked');
+    console.log(this.orderItem, this.sourceAddress, this.destAddress, this.deliveryDueDate, 'pending', this.orderer, this.receiver);
+      this.orderService.orderDeliveryDetail(this.orderItem, this.sourceAddress, this.destAddress, this.deliveryDueDate, 'pending', this.orderer, this.receiver)
         .subscribe((res) => {
           console.log('order succeded', res);
           this.showModalOnClick.show();
@@ -315,10 +315,10 @@ export class OrderComponent implements OnInit, AfterViewInit {
         'phoneNumber': this.phone,
       }
 
-      console.log('ready to order',315);
-      let shippingCost = this.calculateCostEstimation(this.selectedService);
-      console.log('shippingCost', shippingCost);
-      this.orderService.orderDeliveryDetail(this.orderItem, this.sourceAddress, this.destAddress, this.deliveryDueDate, '', this.orderer, this.receiver)
+      // console.log('ready to order',315);
+      // let shippingCost = this.calculateCostEstimation(this.selectedService);
+      // console.log('shippingCost', shippingCost);
+      this.orderService.orderDeliveryDetail(this.orderItem, this.sourceAddress, this.destAddress, this.deliveryDueDate, 'pending', this.orderer, this.receiver)
         .subscribe((res) => {
           console.log('order succeded', res);
 

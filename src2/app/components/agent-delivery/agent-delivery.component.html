@@ -1,0 +1,495 @@
+<!-- first Navbar-->
+
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo lighten-1" [containerInside]="false">
+    <!-- Navbar brand -->
+    <mdb-navbar-brand>
+        <a class="navbar-brand" href="#">
+            <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt="">
+        </a>
+    </mdb-navbar-brand>
+
+    <links>
+        <ul class="navbar-nav mr-auto ">
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect>
+                    <div class="input-group mb-2 mr-sm-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <mdb-icon fas icon="search"></mdb-icon>
+                            </div>
+                        </div>
+                        <input mdbInput type="text" class="form-control py-0 searchEverything"
+                            id="inlineFormInputGroupUsername2" placeholder="Search for anything">
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-light" mdbWavesEffect>
+                    <input mdbInput type="text" class="form-control mb-2 mr-sm-2 locationDisplay"
+                        id="inlineFormInputName2" placeholder="">
+                </a>
+            </li>
+
+        </ul>
+        <ul class="navbar-nav ml-auto nav-flex-icons leftNavs">
+
+            <li class="nav-item">
+                <a class="nav-link">
+                    <mdb-icon fas icon="shopping-cart" (click)="frame.show()"></mdb-icon>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">
+                    <mdb-icon fas icon="envelope"></mdb-icon>
+                </a>
+            </li>
+            <li class="nav-item avatar dropdown" dropdown>
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light"
+                    mdbWavesEffect>
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img(31).jpg" alt=""
+                        class="img-fluid rounded-circle z-depth-0" style="width: 30px;"></a>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect href="#">Log out</a>
+                </div>
+            </li>
+        </ul>
+    </links>
+</mdb-navbar>
+
+<!-- second Navbar-->
+
+<mdb-navbar SideClass="navbar white lighten-1" class="secondNavs" [containerInside]="false">
+    &nbsp; &nbsp;
+    <a class="nav-link active" routerLink="/order/delivery" id="activeLink">
+        <mdb-icon fas icon="couch"></mdb-icon> &nbsp; FURNITURE
+    </a>
+    <a class="nav-link" href="#">
+        <mdb-icon fas icon="utensils"></mdb-icon> &nbsp; FOOD
+    </a>
+    <a class="nav-link" href="#">
+        <mdb-icon fas icon="tshirt"></mdb-icon> &nbsp; LAUNDARY
+    </a>
+    <a class="nav-link" href="#">
+        <mdb-icon fas icon="shopping-basket"></mdb-icon>&nbsp; GROCERIES
+    </a>
+    <a class="nav-link" href="#">
+        <mdb-icon fas icon="gift"></mdb-icon>&nbsp; GIFTS
+    </a>
+    <a class="nav-link disabled" href="#">
+        <mdb-icon fas icon="university"></mdb-icon>&nbsp; MORE STORE
+    </a>
+    <a class="nav-link" href="#"></a>
+    <a class="nav-link" href="#"></a>
+    <a class="nav-link" href="#"></a>
+    <a class="nav-link disabled " id="forcompany" href="#">For company</a>
+    <a class="nav-link disabled" href="#" id="chat">
+        <mdb-icon fas icon="sms"></mdb-icon>
+    </a>
+</mdb-navbar>
+
+<!-- body content -->
+<div class="dynamicContent">
+    <div class="contentLeft">
+        <ul class="nav flex-column lighten-4 py-4 ">
+            <li class="nav-item">
+                <a class="nav-link active" style="color: indigo;  font-weight: bold;" (click)="getProfile()"> <span
+                        style="color: indigo;">|</span>&nbsp; Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" (click)="getOrder()"> <span></span>&nbsp; Order Request</a>
+            </li>
+
+            <li class="nav-item avatar dropdown" dropdown>
+                <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light"
+                    mdbWavesEffect>
+                    &nbsp; Processed Request
+                   </a>
+                <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                    <a class="dropdown-item waves-light" mdbWavesEffect (click)="getAcceptedOrders()">Accepted Order</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect (click)="getRejectedOrders()">Denied Orders</a>
+                </div>
+            </li>
+
+            <!-- <li class="nav-item">
+                <a class="nav-link" (click)="getReOrders()">&nbsp; Approved Request</a>
+            </li> -->
+        </ul>
+    </div>
+
+    <!-- profile section -->
+    <div class="contentRight" *ngIf='profileStatus'>
+        <mdb-card class="dynamicCard">
+            <mdb-card-body>
+                <mdb-card-title>
+                    <h4>Your Profile</h4>
+                    <br>
+                </mdb-card-title>
+                <div class="profile">
+                    <div class="profileLeft">
+                        <form class="text-center">
+
+                            <div class="form-row mb-4">
+                                <div class="col">
+                                    <input type="text" id="name" class="form-control" placeholder="Name">
+                                </div>
+                                <!-- <div class="col">
+          </div> -->
+                            </div>
+
+                            <div class="form-row mb-4">
+                                <div class="col">
+                                    <input type="email" id="email" class="form-control mb-4" placeholder="Email">
+                                </div>
+                                <!-- <div class="col">
+            </div> -->
+                            </div>
+
+                            <div class="form-row mb-4">
+                                <div class="col">
+                                    <input type="password" id="password" class="form-control mb-4"
+                                        placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                                </div>
+                                <!-- <div class="col">
+            </div> -->
+                            </div>
+
+                            <div class="form-row mb-4">
+                                <div class="col">
+                                    <input type="phone" id="phone" class="form-control mb-4" placeholder="Phone Number">
+                                </div>
+                                <div class="col">
+                                    <button mdbBtn type="button" class="btn-sm" color="info" outline="true"
+                                        style="margin-top: 0px;padding-top: 0px na;" mdbWavesEffect>Send code</button>
+                                </div>
+                            </div>
+                            <b>Email</b> :hena12@gmail.com
+
+                            <br><br>
+
+
+
+                            <div class="form-row mb-4">
+                                <p>SMS notifications</p>
+                            </div>
+                            <div class="form-row mb-4" style="margin-left: 2vw">
+                                <mdb-checkbox class="mt-1"></mdb-checkbox>
+                                <p>Send me order update via sms</p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="profileRight">
+
+
+                        <div class="modal-dialog cascading-modal modal-avatar modal-sm" role="document">
+                            <!--Content-->
+                            <div class="modal-content">
+
+                                <!--Header-->
+                                <div class="modal-header">
+                                    <img src="../../../assets/user3.jpg" alt="avatar"
+                                        class="rounded-circle img-responsive">
+                                </div>
+                                <!--Body-->
+                                <div class="modal-body mb-1">
+
+                                    <h5 class="mt-1 mb-2 text-center">Hena Fufa</h5>
+
+                                    <div class="text-center mt-4">
+                                        <button mdbBtn color="cyan" rounded="true" class="mt-1 waves-light"
+                                            mdbWavesEffect>Change Profile
+                                            <mdb-icon fas icon="sign-in-alt" class="ml-1"></mdb-icon>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--/.Content-->
+                        </div>
+
+                    </div>
+
+                </div>
+                <hr>
+                <div style="margin-left: 25vw;">
+                    <a type="button" class="light-blue-text mx-2">
+                        <mdb-icon fab icon="facebook"></mdb-icon>
+                    </a>
+                    <a type="button" class="light-blue-text mx-2">
+                        <mdb-icon fab icon="twitter"></mdb-icon>
+                    </a>
+                    <a type="button" class="light-blue-text mx-2">
+                        <mdb-icon fab icon="linkedin"></mdb-icon>
+                    </a>
+                    <a type="button" class="light-blue-text mx-2">
+                        <mdb-icon fab icon="github"></mdb-icon>
+                    </a>
+                </div>
+
+            </mdb-card-body>
+        </mdb-card>
+    </div>
+
+    <!-- order section -->
+    <div class="contentRight" *ngIf='orderStatus'>
+        <mdb-card class="orderCard">
+            <mdb-card-body class="orderHistory">
+                <!-- Search form -->
+                <form class="form-inline md-form form-sm active-purple-2">
+                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+                        aria-label="Search" mdbInput>
+                    <mdb-icon fas icon="search" aria-hidden="true"></mdb-icon>
+                </form>
+                <div class="orderListMessage">
+                    <button mdbBtn type="button" (click)="getOrders()" class="btn-md" color="info" outline="true"
+                        mdbWavesEffect> Requested Order </button>
+                    <!-- (click)="frameOrder.show()" -->
+                </div>
+
+                <!-- <div class="placeTaker"> -->
+                <table mdbTable striped="true">
+                    <thead>
+                        <tr>
+                            <th *ngFor="let head of headElements" scope="col">{{ head }}</th>
+                        </tr>
+                    </thead>
+                    <tbody mdbTableCol *ngFor="let el of orderRequest">
+                        <tr>
+                            <td scope="row">
+                                <button type="button" mdbBtn color="info" class="master-button" mdbWavesEffect
+                                    *ngIf="el.collapsed" (click)="el.collapsed = !el.collapsed">
+                                    <mdb-icon fas icon="angle-down"></mdb-icon>
+                                </button>
+                                <button type="button" mdbBtn color="info" class="master-button" mdbWavesEffect
+                                    *ngIf="!el.collapsed" (click)="el.collapsed = !el.collapsed">
+                                    <mdb-icon fas icon="angle-right"></mdb-icon>
+                                </button>
+                                <span class="ml-1">{{ el.id }}</span>
+                            </td>
+                            <td><a (click)='addStatus(el)'>{{ el.item.name }}</a></td>
+                            <td>{{ el.item.category }}</td>
+                            <td> <button type="button" mdbBtn size="sm" mdbWavesEffect
+                                    (click)="AcceptOrder(el)">AcceptOrder</button></td>
+                            <td> <button type="button" mdbBtn size="sm" mdbWavesEffect (click)="denyOrder(el)">Deny
+                                    Order</button></td>
+                        </tr>
+                        <tr *ngIf="el.collapsed" style="text-align: center; ">
+                            <td colspan="100%" style="border: 0 !important">
+                                <table mdbTable>
+                                    <thead class="black white-text">
+                                        <tr>
+                                            <th *ngFor="let head of masterHeadElements" scope="col">{{ head }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ el.deliveryDate }}</td>
+                                            <td>{{ el.item.name }}</td>
+                                            <td>{{ el.orderer.role }}</td>
+                                            <td>{{ el.orderer.role }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- </div> -->
+            </mdb-card-body>
+        </mdb-card>
+    </div>
+
+    <!-- re order section -->
+    <div class="contentRight" *ngIf='reorderStatus'>
+        <mdb-card class="reorderCard">
+            <mdb-card-body class="orderHistory">
+                <app-order-table></app-order-table>
+            </mdb-card-body>
+        </mdb-card>
+    </div>
+
+    <!-- address section -->
+    <div class="contentRight" *ngIf='adrressStatus'>
+        <mdb-card class="dynamicCard">
+            <mdb-card-body>
+                <h4>Your Adresses</h4>
+                <hr>
+                <form>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="md-form form-group">
+                                <input mdbInput type="email" class="form-control" id="inputEmail4MD"
+                                    placeholder="Email">
+                                <label for="inputEmail4MD">Email</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="md-form form-group">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="md-form form-group">
+                                <input mdbInput type="text" class="form-control" id="inputAddressMD"
+                                    placeholder="4 kilo , Romina">
+                                <label for="inputAddressMD">Address</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="md-form form-group">
+                                <input mdbInput type="text" class="form-control" id="inputAddress2MD"
+                                    placeholder="mickland condominum, studio, or floor">
+                                <label for="inputAddress2MD">Address 2</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <div class="md-form form-group">
+                                <input mdbInput type="text" class="form-control" id="inputCityMD"
+                                    placeholder="Addis Ababa City">
+                                <label for="inputCityMD">City</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="md-form form-group">
+                                <input mdbInput type="text" class="form-control" id="inputZipMD"
+                                    placeholder="1106-1117">
+                                <label for="inputZipMD">Zip</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" mdbBtn color="primary">Add Address</button>
+                </form>
+            </mdb-card-body>
+        </mdb-card>
+    </div>
+
+    <!-- status section -->
+    <div class="contentRight" *ngIf='updateStatus'>
+        <mdb-card class="orderCard">
+            <mdb-card-body class="orderHistory">
+                <app-update-order-status [orderDetail]="orderApprovalDetail"></app-update-order-status>
+                <!-- <ul>
+                <li *ngFor="let order of orderDetail">hello:{{order._id}}</li>
+              </ul> -->
+            </mdb-card-body>
+        </mdb-card>
+    </div>
+</div>
+
+
+<!-- footer content -->
+<div class="content" role="main">
+
+    <footer>
+
+
+        <!-- Copyright -->
+        <a href="https://github.com/angular/angular" target="_blank" rel="noopener">
+            <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2" />
+                <path d="M0 0h24v24H0z" fill="none" />
+            </svg>
+        </a>
+    </footer>
+    <!-- Copyright -->
+
+    <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677"
+        viewBox="0 0 2611.084 485.677">
+        <path id="Path_39" data-name="Path 39"
+            d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z"
+            transform="translate(142.69 -634.312)" fill="#eee" />
+    </svg>
+</div>
+
+<!-- cart modal -->
+<div mdbModal #frame="mdbModal" class="modal fade right modal-scrolling" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+    <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-info" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+                <p class="heading">Product in the cart
+                </p>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+
+            <!--Body-->
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-3">
+                        <p></p>
+                        <p class="text-center">
+                            <mdb-icon fas icon="shopping-cart" size="4x"></mdb-icon>
+                        </p>
+                    </div>
+
+                    <div class="col-9">
+                        <ul>
+                            <li>Delux sofa</li>
+                            <li>delux dressing table</li>
+                            <li>delux shelf</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--Footer-->
+            <div class="modal-footer justify-content-center">
+                <a type="button" mdbBtn color="info" class="waves-effect" mdbWavesEffect>Order Delivery</a>
+                <a type="button" mdbBtn color="info" outline="true" class="waves-effect" mdbWavesEffect
+                    data-dismiss="modal" (click)="frame.hide()">Cancel</a>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+
+
+<!-- order modal -->
+<div mdbModal #frameOrder="mdbModal" class="modal fade right" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-avatar modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-body mb-1">
+                <form class="text-center">
+                    <div class="form-row mb-4">
+                        <div class="col">
+                            <input type="text" id="name" class="form-control" placeholder="Enter name">
+                        </div>
+                        <div class="col">
+                            <!-- role-->
+                            <select (change)="selectOption($event.target.value)" [(ngModel)]="selected" name="role"
+                                class="browser-default custom-select">
+                                <option [value]="item.name" *ngFor="let item of items">{{item.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row mb-4">
+                        <div class="col">
+                            <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="">
+                        </div>
+                        <div class="col">
+                            <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="">
+                    <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder=""
+                        aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                    <button mdbBtn color="info" block="true" class="my-4" type="submit">Add To Cart</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
